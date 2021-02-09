@@ -1,0 +1,35 @@
+.terms {
+  color: black;
+
+  h2 {
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+
+  .terms_section {
+    margin: 1.5rem 2.5rem;
+
+    h4 {
+      font-style: italic;
+      margin-bottom: 0.3rem;
+    }
+
+    h5 {
+      font-weight: normal;
+      margin: 0 0.5rem;
+    }
+  }
+}
+
+// RESPONSIVE FOR MOBILE SCREEN'S.
+@media screen and (max-width: 768px) {
+  .terms {
+    h2 {
+      margin-top: 0.5rem;
+    }
+
+    .terms_section {
+      margin: 1rem;
+    }
+  }
+}

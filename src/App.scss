@@ -1,0 +1,179 @@
+html {
+  overflow-x: hidden;
+  scroll-snap-type: y mandatory;
+  width: 100vw;
+}
+
+body {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// h1 {
+//   font-size: 24px !important;
+//   font-weight: 900;
+// }
+
+// h2 {
+//   font-size: 18px !important;
+//   font-weight: 400;
+// }
+
+// h3 {
+//   font-size: 14px !important;
+//   font-weight: 400;
+// }
+
+// h4 {
+//   font-size: 13px !important;
+//   font-weight: 900;
+// }
+
+// h5 {
+//   font-size: 12px !important;
+//   font-weight: 900;
+// }
+
+// h6 {
+//   font-size: 11px !important;
+//   font-weight: 600;
+// }
+
+* {
+  // -ms-overflow-style: none;
+  margin: 0;
+  padding: 0;
+  // scrollbar-width: none;
+
+  // &::-webkit-scrollbar {
+  //   display: none;
+  // }
+}
+
+.user-select-none {
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  -webkit-user-select: none; /* Safari */
+  user-select: none; /* Standard syntax */
+}
+
+.app {
+  background-color: rgba(124, 124, 124, 0.301);
+  color: white;
+  // height: 100vh;
+
+  .loader {
+    animation: fade-out 1.2s linear;
+    background-color: white;
+    display: grid;
+    height: 100vh;
+    place-items: center;
+    width: 100%;
+
+    .container {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+
+      .outer {
+        animation: spin 1.2s linear, fade-out 1.2s linear;
+        object-fit: contain;
+        position: absolute;
+        width: 25rem;
+      }
+
+      .inner {
+        animation: fade-out 1.2s linear;
+        object-fit: contain;
+        position: absolute;
+        width: 25rem;
+        z-index: 10;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes fade-out {
+        0% {
+          opacity: 1;
+        }
+
+        100% {
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  // .snackbar {
+  //   -moz-box-shadow: 0 0.1px 35px rgba(0, 0, 0, 0.5);
+  //   -webkit-appearance: none !important;
+  //   -webkit-box-shadow: 0 0.1px 35px rgba(0, 0, 0, 0.5);
+  //   align-items: center;
+  //   background: transparent;
+  //   background-color: rgb(0, 0, 0);
+  //   border-radius: 10px;
+  //   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+  //   color: white;
+  //   display: flex;
+  //   justify-content: space-between;
+  //   margin: 80px 30px 0 0;
+  //   padding: 15px 20px;
+  //   position: absolute;
+  //   right: 0;
+  //   top: 0;
+  //   z-index: 10;
+
+  //   .snackbar_icon {
+  //     margin-right: 0.5rem;
+  //   }
+  // }
+}
+
+// RESPONSIVE FOR MOBILE SCREEN'S.
+@media screen and (max-width: 768px) {
+  .app {
+    .loader {
+      .container {
+        .outer {
+          width: 15rem;
+        }
+
+        .inner {
+          width: 15rem;
+        }
+      }
+    }
+
+    // .snackbar {
+    //   margin: 70px 20px 0 0;
+    //   padding: 10px 15px;
+    // }
+  }
+}
+
+// RESPONSIVE FOR TABLET SCREEN'S.
+// @media screen and (min-width: 769px) and (max-width: 1024px) {
+//   .app {
+//     .loader {
+//       .container {
+//         .outer {
+//           width: 25rem;
+//         }
+
+//         .inner {
+//           width: 25rem;
+//         }
+//       }
+//     }
+//   }
+// }

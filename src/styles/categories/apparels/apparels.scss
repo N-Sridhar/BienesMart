@@ -1,0 +1,80 @@
+@mixin flex-display {
+  align-items: center;
+  display: flex;
+}
+
+.unisex,
+.mens,
+.womens,
+.kids {
+  color: black;
+  margin-right: 1rem;
+
+  .unisex_breadcrumbs,
+  .mens_breadcrumbs,
+  .womens_breadcrumbs,
+  .kids_breadcrumbs {
+    color: darkslategrey;
+    font-size: 14px;
+    margin: 1.5rem 0 0 2rem;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+
+  .unisex_description,
+  .mens_description,
+  .womens_description,
+  .kids_description {
+    @include flex-display;
+    flex-direction: column;
+    justify-content: center;
+    margin: 2rem 0 3rem;
+  }
+
+  .unisex_options,
+  .mens_options,
+  .womens_options,
+  .kids_options {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    margin-bottom: 2rem;
+    place-content: center;
+  }
+}
+
+// RESPONSIVE FOR MOBILE SCREEN'S.
+@media screen and (max-width: 769px) {
+  .unisex,
+  .mens,
+  .womens,
+  .kids {
+    margin-right: 0;
+
+    .unisex_breadcrumbs,
+    .mens_breadcrumbs,
+    .womens_breadcrumbs,
+    .kids_breadcrumbs {
+      margin: 0.5rem 0 0 0.5rem;
+    }
+
+    .unisex_description,
+    .mens_description,
+    .womens_description,
+    .kids_description {
+      margin: 1rem 0 1.5rem;
+    }
+
+    .unisex_options,
+    .mens_options,
+    .womens_options,
+    .kids_options {
+      grid-gap: 0.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+      margin-bottom: 1rem;
+    }
+  }
+}

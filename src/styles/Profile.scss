@@ -1,0 +1,440 @@
+@mixin flex-display {
+  align-items: center;
+  display: flex;
+}
+
+@mixin shadow {
+  -moz-box-shadow: 0 0.1px 35px black;
+  -webkit-appearance: none !important;
+  -webkit-box-shadow: 0 0.1px 35px black;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.8);
+}
+
+.profile {
+  .profile_container {
+    @include flex-display;
+    background-color: rgba(255, 255, 255, 0.65);
+    border: 1px solid black;
+    border-radius: 10px;
+    flex-direction: column;
+
+    h5 {
+      color: crimson;
+      letter-spacing: 1px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .profile_top {
+      padding: 1rem 0;
+      width: 100%;
+
+      .profile_top_container {
+        @include flex-display;
+        height: 7rem;
+        justify-content: space-between;
+
+        .top_email {
+          width: 50%;
+
+          form {
+            margin: 0 5rem;
+            width: 100%;
+
+            input {
+              border: 1px solid gray;
+              border-radius: 10px;
+              font-weight: bold;
+              height: 2rem;
+              letter-spacing: 1px;
+              margin: 6px;
+              padding: 0 5px;
+              text-align: center;
+              width: 45%;
+            }
+          }
+        }
+
+        .top_photo {
+          @include flex-display;
+          justify-content: center;
+          width: 50%;
+
+          .photo_avatarName {
+            background: none;
+            color: black;
+            font-size: 60px;
+            height: 7rem;
+            width: 7rem;
+
+            img {
+              max-height: 115px;
+              max-width: 115px;
+            }
+          }
+
+          .upload_iconButton {
+            margin-left: 1rem;
+          }
+
+          .top_photoUpload {
+            margin: 0 1rem;
+            max-width: 15rem;
+            text-align: center;
+
+            h6 {
+              word-wrap: break-word;
+            }
+
+            .iconSave {
+              color: green;
+              padding: 5px;
+            }
+          }
+
+          .circularProgress {
+            color: green;
+            margin-left: 0.5rem;
+          }
+        }
+      }
+    }
+
+    .profile_middle {
+      border-top: 1px solid black;
+      padding: 1rem 0;
+      width: 100%;
+
+      .pMiddle_form {
+        form {
+          .pMiddle_form_row1,
+          .pMiddle_form_row2 {
+            @include flex-display;
+            justify-content: space-evenly;
+            margin: 1.8rem 0;
+
+            h3 {
+              font-size: medium;
+            }
+
+            input {
+              border: 1px solid gray;
+              border-radius: 10px;
+              font-size: medium;
+              height: 2rem;
+              letter-spacing: 1px;
+              margin: 0 0.5rem;
+              padding: 0 10px;
+              text-align: center;
+            }
+          }
+
+          .pMiddle_form_row1 {
+            .row1Fname,
+            .row1Lname,
+            .row1Phone {
+              @include flex-display;
+              margin: 0.5rem 0;
+            }
+          }
+
+          .row1Phone {
+            .react-tel-input {
+              .form-control {
+                width: fit-content;
+              }
+            }
+
+            .phoneInput {
+              padding: 0 5px;
+              //   width: 50%;
+            }
+
+            .PhoneInputCountry {
+              margin-left: 0.3rem;
+              margin-right: 0;
+            }
+          }
+
+          .pMiddle_form_bday {
+            @include flex-display;
+
+            h3 {
+              margin-right: 0.5rem;
+            }
+
+            input {
+              border: 1px solid gray;
+              border-radius: 10px;
+              text-align: center;
+              width: 7rem;
+            }
+          }
+
+          .calendarContainer {
+            background-color: rgba(0, 0, 0, 0.329);
+            display: grid;
+            height: 100%;
+            left: 0;
+            place-items: center;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+
+            .calendarBg {
+              height: 100%;
+              position: absolute;
+              width: 100%;
+              z-index: 5;
+            }
+
+            .calendar {
+              z-index: 10;
+            }
+          }
+
+          Button {
+            &:disabled {
+              background-color: initial;
+              color: gray;
+            }
+          }
+        }
+      }
+    }
+
+    .profile_bottom {
+      border-top: 1px solid black;
+      padding: 1rem 0;
+      width: 100%;
+
+      .profile_bottom_container {
+        @include flex-display;
+        margin: 1rem 0;
+
+        .address_left,
+        .address_right {
+          @include flex-display;
+          flex-direction: column;
+          justify-content: center;
+          padding: 0 1.5rem;
+          width: 50%;
+
+          h4 {
+            font-style: italic;
+            font-weight: normal;
+            margin-bottom: 0.5rem;
+            text-align: left;
+            text-decoration: underline;
+            width: 100%;
+          }
+
+          input {
+            border: 1px solid gray;
+            border-radius: 10px;
+            font-size: medium;
+            height: 2rem;
+            letter-spacing: 1px;
+            margin: 0 0.5rem;
+            text-align: center;
+            width: 14.5rem;
+
+            &::-webkit-inner-spin-button,
+            &::-webkit-outer-spin-button {
+              -webkit-appearance: none;
+              margin: 0;
+            }
+          }
+
+          .address_row {
+            margin: 1rem 0;
+          }
+
+          .last {
+            margin-top: 0;
+          }
+
+          .address_saveBtn {
+            background-color: darkmagenta;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            margin-top: 0.5rem;
+
+            &:disabled {
+              background-color: initial;
+              color: gray;
+            }
+          }
+        }
+
+        .address_left {
+          border-right: 1px solid black;
+        }
+      }
+    }
+  }
+}
+
+// RESPONSIVE FOR MOBILE SCREEN'S.
+@media screen and (max-width: 768px) {
+  .profile {
+    .profile_container {
+      .profile_top {
+        padding: 0.5rem 0;
+
+        .profile_top_container {
+          flex-direction: column;
+          height: fit-content;
+
+          .top_email {
+            width: 100%;
+
+            form {
+              @include flex-display;
+              justify-content: center;
+              margin: 0;
+
+              h3 {
+                font-size: 16px;
+              }
+
+              input {
+                height: 1.8rem;
+                margin: 6px;
+                margin-right: 0;
+                margin-top: 8px;
+                width: 60%;
+              }
+            }
+          }
+
+          .top_photo {
+            width: 100%;
+
+            .photo_avatarName {
+              height: 6.5rem;
+              margin-top: 0.5rem;
+              width: 6.5rem;
+            }
+
+            .upload_iconButton {
+              margin-left: 0.5rem;
+            }
+
+            .top_photoUpload {
+              margin: 0 0.5rem;
+              max-width: 8rem;
+              text-align: center;
+
+              h6 {
+                word-wrap: break-word;
+              }
+
+              .iconSave {
+                color: green;
+                padding: 3px;
+              }
+            }
+
+            .circularProgress {
+              color: green;
+              margin-left: 0;
+            }
+          }
+        }
+      }
+
+      .profile_middle {
+        padding: 0.5rem 0;
+
+        .pMiddle_form {
+          form {
+            .pMiddle_form_row1,
+            .pMiddle_form_row2 {
+              flex-direction: column;
+              margin: 0;
+
+              h3 {
+                font-size: 16px;
+              }
+
+              input {
+                height: 1.8rem;
+                margin-right: 0;
+              }
+            }
+
+            .pMiddle_form_row1 {
+              .row1Fname,
+              .row1Lname,
+              .row1Phone {
+                margin: 0.5rem 0;
+              }
+            }
+
+            .pMiddle_form_row2 {
+              .pMiddle_form_bday {
+                margin: 0.5rem 0;
+              }
+
+              Button {
+                margin-top: 0.2rem;
+              }
+            }
+          }
+        }
+      }
+
+      .profile_bottom {
+        padding: 0.5rem 0;
+
+        .profile_bottom_container {
+          flex-direction: column;
+          margin: 0.5rem 0;
+
+          .address_left,
+          .address_right {
+            padding: 0;
+            width: 100%;
+
+            h4 {
+              margin-left: 1.5rem;
+            }
+
+            input {
+              height: 1.8rem;
+              margin: 0.3rem 0;
+              width: 18rem;
+            }
+
+            .address_row {
+              margin: 0;
+              text-align: center;
+            }
+          }
+
+          .address_left {
+            border-bottom: 1px dashed black;
+            border-right: 0;
+
+            .address_saveBtn {
+              margin-bottom: 1rem;
+            }
+          }
+
+          .address_right {
+            h4 {
+              margin-top: 0.5rem;
+            }
+
+            .address_saveBtn {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

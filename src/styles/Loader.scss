@@ -1,0 +1,64 @@
+.loader {
+  animation: fade-out 1.2s linear;
+  background-color: white;
+  display: grid;
+  height: 100vh;
+  place-items: center;
+  width: 100%;
+
+  .container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    .outer {
+      animation: spin 1.2s linear, fade-out 1.2s linear;
+      object-fit: contain;
+      position: absolute;
+      width: 25rem;
+    }
+
+    .inner {
+      animation: fade-out 1.2s linear;
+      object-fit: contain;
+      position: absolute;
+      width: 25rem;
+      z-index: 10;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes fade-out {
+      0% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+// RESPONSIVE FOR MOBILE SCREEN'S.
+@media screen and (max-width: 768px) {
+  .loader {
+    .container {
+      .outer {
+        width: 15rem;
+      }
+
+      .inner {
+        width: 15rem;
+      }
+    }
+  }
+}

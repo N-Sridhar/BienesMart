@@ -1,0 +1,201 @@
+@mixin flex-display {
+  align-items: center;
+  display: flex;
+}
+
+@mixin shadow {
+  -moz-box-shadow: 0 0.1px 35px black;
+  -webkit-appearance: none !important;
+  -webkit-box-shadow: 0 0.1px 35px black;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.8);
+}
+
+.signup {
+  color: black;
+  display: grid;
+  height: fit-content;
+  place-items: center;
+
+  .signup_container {
+    @include flex-display;
+    @include shadow;
+    background-color: whitesmoke;
+    border: 1px solid black;
+    border-radius: 15px;
+    // color: black;
+    flex-direction: column;
+    justify-content: center;
+    margin: 3rem 0;
+    padding: 0.5rem 1rem;
+    width: 350px;
+
+    h1 {
+      border-bottom: 1px solid black;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      text-align: center;
+      width: 100%;
+    }
+
+    form {
+      width: 100%;
+
+      .name {
+        @include flex-display;
+        justify-content: space-between;
+        margin: 0 5px;
+
+        .fName,
+        .lName {
+          width: (100% / 2.2);
+        }
+      }
+
+      input {
+        border: 1px solid lightgray;
+        border-radius: 10px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: 17px;
+        height: 1.8rem;
+        margin: 0.5rem 0 1rem;
+        padding: 0 5px;
+        width: 96%;
+      }
+
+      .MuiInputBase-root {
+        width: 99%;
+      }
+
+      .password,
+      .passwordConfirm {
+        @include flex-display;
+
+        .visible {
+          color: #69696993;
+          margin: 0 0 10px 5px;
+        }
+
+        .ok {
+          color: rgba(0, 128, 0, 0.65);
+          margin: 0 0 10px 5px;
+        }
+
+        .notOk {
+          color: rgba(128, 0, 0, 0.65);
+          margin: 0 0 10px 5px;
+        }
+      }
+
+      .signup_button {
+        border: 1px solid black;
+        border-radius: 10px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-weight: bolder;
+        height: 1.7rem;
+        letter-spacing: 0.09rem;
+        margin: 0.5rem 0;
+        width: 100%;
+
+        &:hover {
+          background-color: black;
+          color: white;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .signup_signin {
+      @include flex-display;
+      justify-content: center;
+
+      .button {
+        margin-left: 1rem;
+
+        .personPin {
+          color: black;
+        }
+      }
+    }
+  }
+
+  .signup_error {
+    @include flex-display;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px solid red;
+    border-radius: 10px;
+    color: white;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 450px;
+    text-align: center;
+
+    .error_head {
+      @include flex-display;
+      background-color: rgba(0, 0, 0, 0.85);
+      border-bottom: 2px solid red;
+      border-radius: 9px 9px 0 0;
+      // justify-content: center;
+      padding: 1rem 0;
+      width: 100%;
+
+      h2 {
+        flex: 1;
+      }
+
+      .cancelIcon {
+        background-color: rgba(255, 0, 0, 0.6);
+        border: 2px solid red;
+        border-radius: 100%;
+        color: whitesmoke;
+        cursor: pointer;
+        margin-right: 1rem;
+
+        &:hover {
+          color: lightgray;
+        }
+      }
+    }
+
+    .error_message {
+      background-color: rgba(0, 0, 0, 0.55);
+      border-radius: 0 0 9px 9px;
+      margin: 0 1rem;
+      padding: 1.5rem 0;
+      width: 100%;
+
+      h4 {
+        font-weight: normal;
+        letter-spacing: 0.5px;
+      }
+    }
+  }
+}
+
+// RESPONSIVE FOR MOBILE SCREEN'S.
+@media screen and (max-width: 768px) {
+  .signup {
+    .signup_container {
+      width: 75%;
+
+      h1 {
+        font-size: 28px;
+      }
+
+      form {
+        h3 {
+          font-size: 16px;
+        }
+      }
+    }
+
+    .signup_error {
+      max-width: 300px;
+
+      h2 {
+        span {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}

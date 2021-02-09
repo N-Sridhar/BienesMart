@@ -1,0 +1,279 @@
+$bm-grey: #505050;
+
+@mixin shadow {
+  -moz-box-shadow: 0 0.1px 35px black;
+  -webkit-appearance: none !important;
+  -webkit-box-shadow: 0 0.1px 35px black;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.8);
+}
+
+@mixin home-card {
+  @include shadow;
+  align-items: center;
+  border-radius: 15px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin: 0 1.5rem;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.home {
+  color: black;
+  display: flex;
+  justify-content: center;
+
+  .home_container {
+    width: 100%;
+
+    .home_carousel {
+      height: 38rem;
+      width: 100%;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .home_categoryRow {
+      display: flex;
+      flex-direction: column;
+
+      .home_categoryRow_Tilte {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        margin: 0 8rem 2rem 7rem;
+        z-index: 1;
+
+        .home_Title_Line {
+          background-color: $bm-grey;
+          flex: 1;
+          height: 1px;
+          padding: 0.5px;
+          position: relative;
+          z-index: 1;
+        }
+
+        span {
+          color: $bm-grey;
+          font-size: 22px;
+          font-weight: 600;
+          margin: 0 1rem;
+          text-transform: uppercase;
+        }
+      }
+
+      .home_categoryCard_group {
+        display: flex;
+        justify-content: space-evenly;
+        margin-bottom: 1rem;
+        margin-right: 1rem;
+        z-index: 1;
+
+        a {
+          position: relative;
+        }
+
+        .home_apparelsCard {
+          @include home-card;
+          height: 14rem;
+          width: 20rem;
+
+          img {
+            transition: 0.5s ease;
+            width: 100%;
+
+            &:hover {
+              transform: scale(1.1);
+            }
+          }
+        }
+
+        .home_accessoryCard {
+          @include home-card;
+          // align-items: flex-start;
+          height: 14.5rem;
+          margin: 0 2.5rem 2.5rem;
+          width: 14.5rem;
+
+          img {
+            transition: 0.5s ease;
+            width: 100%;
+
+            &:hover {
+              transform: scale(1.1);
+            }
+          }
+        }
+
+        .home_decorCard {
+          @include home-card;
+          border-radius: 100%;
+          height: 14rem;
+          width: 14rem;
+
+          img {
+            object-fit: contain;
+            transition: 0.5s ease;
+            width: 14rem;
+
+            &:hover {
+              transform: scale(1.1);
+            }
+          }
+        }
+      }
+    }
+
+    .home_Info_Row {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      margin: 0 1rem;
+
+      .home_Info_svg {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 3rem 0;
+
+        img {
+          margin: 0 4rem;
+          width: 6rem;
+        }
+
+        span {
+          margin-top: 0.5rem;
+          text-align: center;
+        }
+      }
+
+      .home_Info_Poster1 {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        margin: 0 6rem 3rem;
+
+        img {
+          @include shadow;
+          border: 1px solid $bm-grey;
+          border-radius: 5px;
+          object-fit: contain;
+          width: 90%;
+        }
+      }
+    }
+  }
+}
+
+// RESPONSIVE FOR MOBILE SCREEN'S.
+@media screen and (max-width: 768px) {
+  .home {
+    .home_container {
+      .home_carousel {
+        height: 9rem;
+        margin-bottom: -55px;
+      }
+
+      .home_categoryRow {
+        margin: 0 0 1rem;
+
+        .home_categoryRow_Tilte {
+          margin: 0;
+
+          span {
+            font-size: medium;
+            margin: 0 0.5rem;
+          }
+        }
+
+        .home_categoryCard_group {
+          flex-wrap: wrap;
+          margin: 0;
+
+          .home_apparelsCard {
+            height: 6rem;
+            margin: 1rem 0;
+            width: 9rem;
+
+            // img {
+            //   // width: 9rem;
+            //   width: 100%;
+            // }
+          }
+
+          .home_accessoryCard {
+            height: 7rem;
+            margin: 1rem;
+            width: 7rem;
+
+            // img {
+            //   width: 7rem;
+            // }
+          }
+
+          .home_decorCard {
+            height: 6.5rem;
+            margin: 1rem;
+            width: 6.5rem;
+
+            img {
+              width: 6.5rem;
+            }
+          }
+        }
+      }
+
+      .home_Info_Row {
+        margin: 1.5rem 0;
+
+        .home_Info_svg {
+          margin: 0;
+
+          img {
+            margin: 0 1rem;
+            width: 3rem;
+          }
+
+          span {
+            font-size: small;
+          }
+        }
+
+        .home_Info_Poster1 {
+          margin: 0 5.7rem;
+
+          img {
+            border: 1px solid $bm-grey;
+            object-fit: fill;
+            width: 165%;
+          }
+        }
+      }
+    }
+  }
+}
+
+// RESPONSIVE FOR TABLET SCREEN'S.
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .home {
+    .home_container {
+      .home_carousel {
+        height: 30rem;
+      }
+
+      .home_categoryRow {
+        .home_categoryCard_group {
+          .home_apparelsCard {
+            height: 10rem;
+            margin-top: -15rem;
+            width: 12rem;
+          }
+        }
+      }
+    }
+  }
+}

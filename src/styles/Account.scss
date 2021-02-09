@@ -1,0 +1,151 @@
+@mixin flex-display {
+  align-items: center;
+  display: flex;
+}
+
+@mixin shadow {
+  -moz-box-shadow: 0 0.1px 35px black;
+  -webkit-appearance: none !important;
+  -webkit-box-shadow: 0 0.1px 35px black;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.8);
+}
+
+.account {
+  @include flex-display;
+  color: black;
+  height: 75vh;
+
+  .account_sidebar {
+    background-color: rgba(124, 124, 124, 0.301);
+    display: flex;
+    flex: 0.23;
+    flex-direction: column;
+    height: 100%;
+
+    .account_sidebar_header {
+      @include shadow;
+      background-color: rgba(245, 245, 245, 0.8);
+      border: 1px solid black;
+      margin: 25px 25px 15px;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .account_sidebar_options {
+      @include flex-display;
+
+      h2 {
+        cursor: pointer;
+        margin: 20px 0;
+        padding: 15px 0;
+        text-align: center;
+        width: 100%;
+
+        &:hover {
+          background-color: rgba(124, 124, 124, 0.301);
+        }
+      }
+    }
+
+    .quote {
+      background-image: linear-gradient(to bottom, #143143, #14314398);
+      border: 2px solid #143143;
+      color: white;
+      line-height: 30px;
+      margin: 15px 35px;
+      padding: 0 15px;
+      text-align: center;
+    }
+
+    .sidebar_signOut {
+      @include flex-display;
+      background-color: rgba(124, 124, 124, 0.301);
+      justify-content: center;
+
+      .sidebar_signOut_button {
+        margin: 35px;
+      }
+    }
+  }
+
+  .displayArea {
+    -ms-overflow-style: none;
+    display: flex;
+    flex: 0.77;
+    flex-direction: column;
+    height: 87%;
+    overflow-y: scroll;
+    padding: 35px;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+// RESPONSIVE FOR MOBILE SCREEN'S.
+@media screen and (max-width: 768px) {
+  .account {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+
+    .account_sidebar {
+      flex: none;
+      height: fit-content;
+      width: 100%;
+
+      .account_sidebar_header {
+        margin: 15px 50px;
+        padding: 5px 10px;
+      }
+
+      .account_sidebar_MobMid {
+        display: flex;
+        justify-content: space-around;
+
+        .account_sidebar_options {
+          flex-direction: row;
+          justify-content: space-evenly;
+          width: fit-content;
+
+          h2 {
+            font-size: medium;
+            margin: 0;
+            padding: 10px;
+          }
+        }
+      }
+
+      .account_sidebar_MobBot {
+        @include flex-display;
+        justify-content: space-evenly;
+
+        .quote {
+          font-size: small;
+          line-height: 20px;
+          margin: 10px;
+        }
+
+        .sidebar_signOut {
+          background: none;
+          height: fit-content;
+
+          .sidebar_signOut_button {
+            font-size: 12px;
+            margin: 10px;
+          }
+        }
+      }
+    }
+
+    .displayArea {
+      flex: none;
+      height: 73.5%;
+      padding: 10px;
+    }
+  }
+}

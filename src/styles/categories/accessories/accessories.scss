@@ -1,0 +1,65 @@
+@mixin flex-display {
+  align-items: center;
+  display: flex;
+}
+
+.mobilecases,
+.mugs,
+.coasters,
+.totebags,
+.notepads {
+  color: black;
+  margin-right: 1rem;
+
+  .mobilecases_description,
+  .mugs_description,
+  .coasters_description,
+  .totebags_description,
+  .notepads_description {
+    @include flex-display;
+    flex-direction: column;
+    justify-content: center;
+    margin: 2rem 0 3rem;
+  }
+
+  .mobilecases_options,
+  .mugs_options,
+  .coasters_options,
+  .totebags_options,
+  .notepads_options {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    margin-bottom: 2rem;
+    place-content: center;
+  }
+}
+
+// RESPONSIVE FOR MOBILE SCREEN'S.
+@media screen and (max-width: 769px) {
+  .mobilecases,
+  .mugs,
+  .coasters,
+  .totebags,
+  .notepads {
+    margin-right: 0;
+
+    .mobilecases_description,
+    .mugs_description,
+    .coasters_description,
+    .totebags_description,
+    .notepads_description {
+      margin: 1rem 0 1.5rem;
+    }
+
+    .mobilecases_options,
+    .mugs_options,
+    .coasters_options,
+    .totebags_options,
+    .notepads_options {
+      grid-gap: 0.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+      margin-bottom: 1rem;
+    }
+  }
+}
