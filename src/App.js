@@ -24,6 +24,7 @@ import {
 } from './components/Exporter';
 import {Suspense} from 'react';
 import Loader from './components/Loader';
+import {addFav} from './app/redux/favSlice';
 
 function App() {
   const user = useSelector(selectUser);
@@ -54,6 +55,22 @@ function App() {
                 photo: snap.data()?.photo,
                 uid: authUser.uid,
               })
+            );
+          });
+        db.collection(cCustomers)
+          .doc(authUser.uid)
+          .collection('fav')
+          .get()
+          .then((snap) => {
+            snap.docs.map((doc) =>
+              dispatch(
+                addFav({
+                  id: doc.data().id,
+                  img: doc.data().img,
+                  name: doc.data().name,
+                  price: doc.data().price,
+                })
+              )
             );
           });
       } else {

@@ -7,6 +7,8 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import Profile from './Profile';
 import Favourite from './Favourite';
 import Orders from './Orders';
+import {useSelector} from 'react-redux';
+import {getFav} from '../app/redux/favSlice';
 
 function Account() {
   useEffect(() => {
@@ -19,7 +21,16 @@ function Account() {
     document.title = `Bienes Mart 📦 • ${docTitle}`;
   }, [docTitle]);
 
-  const options = [{name: 'Profile'}, {name: 'Favourite'}, {name: 'Orders'}];
+  const favourites = useSelector(getFav);
+  const [favText, setFavText] = useState('');
+
+  useEffect(() => {
+    setFavText(
+      favourites.length < 1 ? 'Favourite' : `Favourite (${favourites.length})`
+    );
+  }, [favourites]);
+
+  const options = [{name: 'Profile'}, {name: favText}, {name: 'Orders'}];
 
   const [render, setRender] = useState('Profile');
 

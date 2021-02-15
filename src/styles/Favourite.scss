@@ -1,0 +1,45 @@
+.favourite {
+  .favourite_empty {
+    align-items: center;
+    display: flex;
+    height: 25rem;
+    justify-content: center;
+
+    h2 {
+      margin-left: 2rem;
+      text-align: center;
+    }
+  }
+
+  .favourite_products {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    // margin: 0 3rem;
+    place-items: center;
+  }
+}
+
+// RESPONSIVE FOR MOBILE SCREEN'S.
+@media screen and (max-width: 769px) {
+  .favourite {
+    width: 100vw;
+
+    .favourite_empty {
+      img {
+        margin-left: 0.5rem;
+      }
+
+      h2 {
+        font-size: 20px;
+        margin: 0 1rem;
+      }
+    }
+
+    .favourite_products {
+      grid-gap: 1rem 0.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+      margin: 1rem;
+    }
+  }
+}

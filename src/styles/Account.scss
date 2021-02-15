@@ -86,12 +86,12 @@
 }
 
 // RESPONSIVE FOR MOBILE SCREEN'S.
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 769px) {
   .account {
     align-items: flex-start;
     display: flex;
     flex-direction: column;
-    height: 90vh;
+    height: fit-content;
 
     .account_sidebar {
       flex: none;
@@ -144,8 +144,8 @@
 
     .displayArea {
       flex: none;
-      height: 73.5%;
-      padding: 10px;
+      height: fit-content;
+      padding: 0;
     }
   }
 }

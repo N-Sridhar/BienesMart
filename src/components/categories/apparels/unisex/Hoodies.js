@@ -6,6 +6,8 @@ import LazyLoad from 'react-lazyload';
 import Logo from '../../../../logo.svg';
 import ProductCard from '../../ProductCard';
 import db, {cProducts} from '../../../../firebase';
+// import {getFav} from '../../../../app/redux/favSlice';
+// import {useSelector} from 'react-redux';
 
 function Hoodies() {
   useEffect(() => {
@@ -16,6 +18,8 @@ function Hoodies() {
   const [loading, setLoading] = useState(true);
   const [hoodies, setHoodies] = useState([]);
 
+  // const favorits = useSelector(getFav);
+
   useEffect(() => {
     db.collection(cProducts)
       .doc('apparels')
@@ -23,7 +27,7 @@ function Hoodies() {
       .onSnapshot((snap) => {
         setHoodies(
           snap.docs.map((doc) => ({
-            id: doc.id,
+            id: doc.data().id,
             name: doc.data().name,
             img: doc.data().img,
             price: doc.data().price,
@@ -44,8 +48,6 @@ function Hoodies() {
       <img src={Logo} alt="" style={{width: '8rem'}} />{' '}
     </div>
   );
-
-  // const {width} = useWindowSize();
 
   return (
     <div className="hoodies">
@@ -75,6 +77,7 @@ function Hoodies() {
               key={i}
             >
               <ProductCard
+                id={hoody?.id}
                 img={hoody?.img}
                 name={hoody?.name}
                 price={hoody?.price}

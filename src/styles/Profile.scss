@@ -174,12 +174,12 @@
           .calendarContainer {
             background-color: rgba(0, 0, 0, 0.329);
             display: grid;
-            height: 100%;
+            height: 100vh;
             left: 0;
             place-items: center;
-            position: absolute;
+            position: fixed;
             top: 0;
-            width: 100%;
+            width: 100vw;
             z-index: 1;
 
             .calendarBg {
@@ -280,6 +280,8 @@
 // RESPONSIVE FOR MOBILE SCREEN'S.
 @media screen and (max-width: 768px) {
   .profile {
+    margin: 10px;
+
     .profile_container {
       .profile_top {
         padding: 0.5rem 0;

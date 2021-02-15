@@ -9,14 +9,12 @@
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
   color: white;
   display: flex;
-  // height: 100%;
   justify-content: space-between;
   margin: 80px 30px 0 0;
   padding: 15px 20px;
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0;
-  // width: 100%;
   z-index: 99;
 
   .snackbar_icon {
@@ -27,7 +25,7 @@
 // RESPONSIVE FOR MOBILE SCREEN'S.
 @media screen and (max-width: 768px) {
   .snackbar {
-    margin: 70px 20px 0 0;
+    margin: 50px 25px 0 0;
     padding: 10px 15px;
   }
 }
